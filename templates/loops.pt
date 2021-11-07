@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<h2>${greetings}</h2>
+<div tal:condition="records">
+    <p>Your records:</p>
+    <table>
+        <tbody>
+        <tr tal:repeat="record records">
+            <td>${record[0]}</td>
+            <td>${record[1]}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div tal:condition="summary">
+    <p>Your summary:</p>
+    <ul>
+        <li tal:repeat="item summary" tal:content="item" />
+    </ul>
+</div>
+</body>
+</html>
